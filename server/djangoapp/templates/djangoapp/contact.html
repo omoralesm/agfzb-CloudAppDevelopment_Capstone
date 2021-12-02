@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {% load static %}
     <meta charset="UTF-8" />
     <title>Dealership Review</title>
     <link
@@ -25,7 +24,9 @@
       class="navbar navbar-expand-lg navbar-light"
       style="background-color: #03501a"
     >
-      <a class="navbar-brand text-light" href="#">Best Cars</a>
+      <a class="navbar-brand text-light" href="{% url 'djangoapp:index' %}"
+        >Best Cars</a
+      >
       <button
         class="navbar-toggler"
         type="button"
@@ -39,15 +40,35 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-link text-light" href="{% url 'djangoapp:contact' %}"
-            >Contact us</a
-          >
+          <a class="nav-link text-light" href="#">Contact us</a>
           <a class="nav-link text-light" href="{% url 'djangoapp:about' %}"
             >About us</a
           >
         </div>
       </div>
     </nav>
-    <!--Add a dealer table here -->
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Best Cars</h5>
+            <p class="card-text">
+              9621 North Cave Creek Rd, Phoenix, AZ 85020, 602-870-8080
+            </p>
+            <p class="card-text">Hours of operation</p>
+            <p class="card-text">Sunday to Friday 9:00 am to 6:00 pm</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          {% load static %}
+          <img
+            src="{% static 'djangoapp/pexels-pixabay-164634.jpg' %}"
+            class="card-img"
+          />
+        </div>
+      </div>
+    </div>
   </body>
 </html>
