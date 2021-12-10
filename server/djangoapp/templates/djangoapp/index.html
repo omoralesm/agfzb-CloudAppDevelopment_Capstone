@@ -17,6 +17,8 @@
     />
     <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet"  href="{% static 'djangoapp/custom-nav.css' %}" type="text/css"/>
   </head>
 
   <body>
@@ -73,7 +75,7 @@
                 </div>
                 <button type="submit" class="btn btn-success">Sign in</button>
               </form>
-              <a class="dropdown-item" href="{% url 'djangoapp:registration' %}">Sign up</a>
+              <a class="dropdown-item nav-link-custom" href="{% url 'djangoapp:registration' %}">Sign up</a>
 
           </div> 
           {% endif %} 
