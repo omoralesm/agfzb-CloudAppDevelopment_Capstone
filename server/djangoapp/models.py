@@ -94,17 +94,26 @@ class CarDealer:
 # <HINT> Create a plain Python class `DealerReview` to hold review data
 class DealerReview:
 
-    def __init__(self, dealership, name, purchase, review, purchase_date, car_make, car_model, car_year, sentiment, id):
-        self.dealership = dealership
-        self.name = name
-        self.purchase = purchase
-        self.review = review
-        self.purchase_date = purchase_date
-        self.car_make = car_make
-        self.car_model = car_model
-        self.car_year = car_year
-        self.sentiment = sentiment
-        self.id = id
+    #def __init__(self, dealership, name, purchase, review, purchase_date, car_make, car_model, car_year, sentiment):
+    def __init__(self, *args, **kwargs):
+        if len(kwargs) > 5:
+            # Creating review when reviewer bought a car
+            self.dealership =  kwargs['dealership']
+            self.name = kwargs['name']
+            self.purchase = kwargs['purchase']
+            self.review = kwargs['review']
+            self.purchase_date = kwargs['purchase_date']
+            self.car_make = kwargs['car_make']
+            self.car_model = kwargs['car_model']
+            self.car_year = kwargs['car_year']
+            self.sentiment = kwargs['sentiment']
+        else:
+            # Creating review when reviewer did not buy a car
+            self.dealership = kwargs['dealership']
+            self.name = kwargs['name']
+            self.purchase = kwargs['purchase']
+            self.review = kwargs['review']
+            self.sentiment = kwargs['sentiment']
 
     def __str__(self):
         return "Dealer name: " + self.name + \
